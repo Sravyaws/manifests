@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: jenkins
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    matadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins:jdk11
+          ports:
+            - containerPort: 8080              
+
+
+  

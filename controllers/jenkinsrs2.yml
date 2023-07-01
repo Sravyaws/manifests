@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Replicaset
+metada:
+  name: samplers
+spec:
+  minReadySeconds: 1
+  replicas: 5
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      name: rspod
+      lables:
+        app: jenkins
+    spec:
+        containers:
+          - name: jenkins
+            image: jenkins/jenkins
+            ports:
+              - containerPort: 8080
+          - name: alpine
+            image: alpine
+            ports:
+              - containerPort: 80
+            arg:
+              - sleep
+              - 1d
+
+  
