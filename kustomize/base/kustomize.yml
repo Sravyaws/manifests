@@ -1,0 +1,5 @@
+---
+resources:
+  - hpa.yml
+  - pod.yml
+  - svc.yml

@@ -1,0 +1,14 @@
+---
+apiversion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+spec:
+  containers:
+    - name: mysqldb
+      image: mysql
+      ports:
+        - containerPort: 3306
+      envFrom:
+        - configMapRef:
+            name: mysql-cm
