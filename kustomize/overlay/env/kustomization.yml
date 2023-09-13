@@ -2,5 +2,5 @@
 resources:
   - ../../base
 
-namespace: uat
-namePrefix: uat-
+namespace: env
+namePrefix: env-
